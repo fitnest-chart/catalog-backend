@@ -13,6 +13,10 @@ istio:
   host: "fitmarket-service"
   mtls:
     mode: STRICT
+  authorization:
+    internalCallers:
+      - "cluster.local/ns/fitnest-dev/sa/user-service"
+      - "cluster.local/ns/fitnest-dev/sa/iam-service"
 env:
   SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql-fitmarket:5432/fitnest_fitmarket"
   SPRING_DATASOURCE_USERNAME: "fitnest_fitmarket"
