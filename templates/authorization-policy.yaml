@@ -2,13 +2,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: {{ include "fitmarket-service.fullname" . }}-auth
+  name: {{ include "marketplace-service.fullname" . }}-auth
   labels:
-    {{- include "fitmarket-service.labels" . | nindent 4 }}
+    {{- include "marketplace-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "fitmarket-service.selectorLabels" . | nindent 6 }}
+      {{- include "marketplace-service.selectorLabels" . | nindent 6 }}
   action: ALLOW
   rules:
   - to:

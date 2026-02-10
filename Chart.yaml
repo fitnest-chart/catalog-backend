@@ -1,6 +1,6 @@
 apiVersion: v2
-name: fitmarket-service
-description: A Helm chart for fitmarket-service
+name: marketplace-service
+description: A Helm chart for marketplace-service
 type: application
 version: 1.0.0
 appVersion: "1.0.0"

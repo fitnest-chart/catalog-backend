@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "fitmarket-service.fullname" . }}
+  name: {{ include "marketplace-service.fullname" . }}
   labels:
-    {{- include "fitmarket-service.labels" . | nindent 4 }}
+    {{- include "marketplace-service.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "fitmarket-service.selectorLabels" . | nindent 6 }}
+      {{- include "marketplace-service.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "fitmarket-service.selectorLabels" . | nindent 8 }}
+        {{- include "marketplace-service.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "fitmarket-service.fullname" . }}
+      serviceAccountName: {{ include "marketplace-service.fullname" . }}
       {{- with .Values.image.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}

@@ -1,8 +1,8 @@
-{{- define "fitmarket-service.name" -}}
+{{- define "marketplace-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{- define "fitmarket-service.fullname" -}}
+{{- define "marketplace-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -11,13 +11,13 @@
 {{- end }}
 {{- end }}
 
-{{- define "fitmarket-service.labels" -}}
+{{- define "marketplace-service.labels" -}}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-app.kubernetes.io/name: {{ include "fitmarket-service.name" . }}
+app.kubernetes.io/name: {{ include "marketplace-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-{{- define "fitmarket-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "fitmarket-service.name" . }}
+{{- define "marketplace-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "marketplace-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
