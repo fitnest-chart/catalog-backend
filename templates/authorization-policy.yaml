@@ -24,11 +24,15 @@ spec:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths: ["/api/v1/internal/*", "/api/v1/internal/**"]
 
-  # Allow public endpoints (health, docs)
+  # Allow public endpoints (health, docs, and marketplace)
   - to:
     - operation:
-        methods: ["GET"]
+        methods: ["GET", "POST", "PUT", "DELETE"]
         paths:
+          - "/api/v1/trainers/*"
+          - "/api/v1/trainers/**"
+          - "/api/v1/programs/*"
+          - "/api/v1/programs/**"
           - "/v3/api-docs/*"
           - "/v3/api-docs"
           - "/swagger-ui/*"
