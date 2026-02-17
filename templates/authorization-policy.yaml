@@ -23,45 +23,23 @@ spec:
     - operation:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths:
-          - "/api/v1/internal/*"
           - "/api/v1/internal/**"
-          - "/api/v1/marketplace/admin/stores"
-          - "/api/v1/marketplace/admin/stores/*"
-          - "/api/v1/gyms/admin"
-          - "/api/v1/gyms/admin/*"
-          - "/api/v1/gyms/admin/*/packages"
-          - "/api/v1/gyms/admin/*/packages/*"
-          - "/api/v1/gyms/admin/*/trainers"
-          - "/api/v1/gyms/admin/*/trainers/*"
-          - "/api/v1/admin/categories"
-          - "/api/v1/admin/categories/*"
-          - "/api/v1/admin/categories/*/photo"
-
+          - "/api/v1/marketplace/admin/**"
+          - "/api/v1/gyms/admin/**"
+          - "/api/v1/admin/categories/**"
+  
   # Allow public endpoints (health, docs, and marketplace)
   - to:
     - operation:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths:
-          - "/api/v1/marketplace/stores"
-          - "/api/v1/marketplace/stores/*"
-          - "/api/v1/marketplace/filters"
-          - "/api/v1/marketplace/upload-image"
-          - "/api/v1/marketplace/main-page-stores"
-          - "/api/v1/gyms/*"
-          - "/api/v1/gyms/*/images"
-          - "/api/v1/gyms/*/packages"
-          - "/api/v1/gyms/*/packages/*/includes"
-          - "/api/v1/gyms/*/trainers"
-          - "/api/v1/gyms/*/reviews"
-          - "/api/v1/gyms/*/reservation-rules"
-          - "/api/v1/gyms/main-page-gyms"
-          - "/api/v1/checkout"
-          - "/api/v1/checkout/*"
-          - "/v3/api-docs"
-          - "/v3/api-docs/*"
-          - "/swagger-ui/*"
+          - "/api/v1/marketplace/**"
+          - "/api/v1/gyms/**"
+          - "/api/v1/checkout/**"
+          - "/v3/api-docs/**"
+          - "/swagger-ui/**"
           - "/swagger-ui.html"
-          - "/actuator/health"
-          - "/actuator/health/*"
+          - "/actuator/health/**"
           - "/health"
+
 {{- end }}
