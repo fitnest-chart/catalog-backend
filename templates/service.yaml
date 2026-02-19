@@ -11,5 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - port: {{ .Values.service.grpcPort }}
+      targetPort: 9090
+      protocol: TCP
+      name: grpc
   selector:
     {{- include "marketplace-service.selectorLabels" . | nindent 4 }}
