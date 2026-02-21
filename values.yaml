@@ -40,13 +40,13 @@ env:
   JWT_ISSUER: "fitnest"
   USER_SERVICE_URL: "http://user-service:8080"
   STORAGE_SERVICE_URL: "http://storage-service:8080"
-  JAVA_OPTS: "-XX:TieredStopAtLevel=1 -Xss256k -Xmx448m"
+  JAVA_OPTS: "-Xmx480m -Xms256m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xss256k"
   LOGGING_LEVEL_ROOT: INFO
   LOGGING_LEVEL_AZ_FITNEST_MARKETPLACE: DEBUG
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
 resources:
   limits:
-    memory: 512Mi
+    memory: 640Mi
     cpu: 500m
   requests:
     cpu: 250m
