@@ -2,11 +2,11 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: {{ include "marketplace-service.fullname" . }}
+  name: {{ include "catalog-service.fullname" . }}
   labels:
-    {{- include "marketplace-service.labels" . | nindent 4 }}
+    {{- include "catalog-service.labels" . | nindent 4 }}
 spec:
-  host: {{ include "marketplace-service.fullname" . }}
+  host: {{ include "catalog-service.fullname" . }}
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL

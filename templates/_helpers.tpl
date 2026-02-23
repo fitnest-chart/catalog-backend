@@ -1,8 +1,8 @@
-{{- define "marketplace-service.name" -}}
+{{- define "catalog-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{- define "marketplace-service.fullname" -}}
+{{- define "catalog-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -11,13 +11,13 @@
 {{- end }}
 {{- end }}
 
-{{- define "marketplace-service.labels" -}}
+{{- define "catalog-service.labels" -}}
 helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-app.kubernetes.io/name: {{ include "marketplace-service.name" . }}
+app.kubernetes.io/name: {{ include "catalog-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-{{- define "marketplace-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "marketplace-service.name" . }}
+{{- define "catalog-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "catalog-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

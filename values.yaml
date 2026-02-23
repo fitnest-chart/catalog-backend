@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: ghcr.io/fitnest-backend/marketplace-service
+  repository: ghcr.io/fitnest-backend/catalog-service
   tag: "development-87ecf2f"
   pullPolicy: IfNotPresent
   imagePullSecrets:
@@ -11,7 +11,7 @@ service:
   grpcPort: 9090
 istio:
   enabled: true
-  host: "marketplace-service"
+  host: "catalog-service"
   mtls:
     mode: STRICT
   authorization:
@@ -28,9 +28,9 @@ hpa:
   memoryUtilization: "450Mi"
 env:
   SPRING_PROFILES_ACTIVE: "dev"
-  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql-marketplace:5432/fitnest_marketplace"
-  SPRING_DATASOURCE_USERNAME: "fitnest_marketplace"
-  SPRING_DATASOURCE_PASSWORD: "marketplace_password_123"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql-catalog:5432/fitnest_catalog"
+  SPRING_DATASOURCE_USERNAME: "fitnest_catalog"
+  SPRING_DATASOURCE_PASSWORD: "catalog_password_123"
   SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
   SPRING_REDIS_HOST: "redis"
   SPRING_REDIS_PORT: "6379"
@@ -42,7 +42,7 @@ env:
   STORAGE_SERVICE_URL: "http://storage-service:8080"
   JAVA_OPTS: "-Xmx480m -Xms256m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xss256k"
   LOGGING_LEVEL_ROOT: INFO
-  LOGGING_LEVEL_AZ_FITNEST_MARKETPLACE: DEBUG
+  LOGGING_LEVEL_AZ_FITNEST_CATALOG: DEBUG
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
 resources:
   limits:

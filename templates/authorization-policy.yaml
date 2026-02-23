@@ -2,13 +2,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: {{ include "marketplace-service.fullname" . }}-allow-internal
+  name: {{ include "catalog-service.fullname" . }}-allow-internal
   labels:
-    {{- include "marketplace-service.labels" . | nindent 4 }}
+    {{- include "catalog-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "marketplace-service.selectorLabels" . | nindent 6 }}
+      {{- include "catalog-service.selectorLabels" . | nindent 6 }}
   action: ALLOW
   rules:
   # Allow internal service-to-service calls
@@ -36,14 +36,14 @@ spec:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths: ["/api/v1/internal/*", "/api/v1/internal/**"]
 
-  # Allow user endpoints (marketplace, gyms, checkout, admin, stores)
+  # Allow user endpoints (catalog, gyms, checkout, admin, stores)
   - to:
     - operation:
         methods: ["GET", "POST", "PUT", "DELETE"]
         paths:
-          - "/api/v1/marketplace"
-          - "/api/v1/marketplace/*"
-          - "/api/v1/marketplace/**"
+          - "/api/v1/catalog"
+          - "/api/v1/catalog/*"
+          - "/api/v1/catalog/**"
           - "/api/v1/gyms"
           - "/api/v1/gyms/*"
           - "/api/v1/gyms/**"
@@ -56,7 +56,7 @@ spec:
           - "/api/v1/stores"
           - "/api/v1/stores/*"
           - "/api/v1/stores/**"
-          - "/marketplace.GymService/*"
+          - "/catalog.GymService/*"
           - "/grpc.reflection.v1alpha.ServerReflection/*"
           - "/grpc.health.v1.Health/*"
 

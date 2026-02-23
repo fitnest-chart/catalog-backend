@@ -2,14 +2,14 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: {{ include "marketplace-service.fullname" . }}-auth-policy
+  name: {{ include "catalog-service.fullname" . }}-auth-policy
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "marketplace-service.labels" . | nindent 4 }}
+    {{- include "catalog-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "marketplace-service.selectorLabels" . | nindent 6 }}
+      {{- include "catalog-service.selectorLabels" . | nindent 6 }}
   action: ALLOW
   rules:
     - from:

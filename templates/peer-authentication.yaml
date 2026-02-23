@@ -2,13 +2,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
-  name: {{ include "marketplace-service.fullname" . }}-mtls
+  name: {{ include "catalog-service.fullname" . }}-mtls
   labels:
-    {{- include "marketplace-service.labels" . | nindent 4 }}
+    {{- include "catalog-service.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "marketplace-service.selectorLabels" . | nindent 6 }}
+      {{- include "catalog-service.selectorLabels" . | nindent 6 }}
   mtls:
     mode: {{ .Values.istio.mtls.mode | default "STRICT" }}
 {{- end }}

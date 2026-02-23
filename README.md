@@ -1,1 +1,1 @@
-# marketplace-service
+# catalog-service
