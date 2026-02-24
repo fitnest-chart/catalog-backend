@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/catalog-service
-  tag: "development-24f9a04"
+  tag: "development-7b20d97"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
@@ -42,8 +42,7 @@ env:
   STORAGE_SERVICE_URL: "http://storage-service:8080"
   JAVA_OPTS: "-Xmx480m -Xms256m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xss256k"
   LOGGING_LEVEL_ROOT: INFO
-  LOGGING_LEVEL_AZ_FITNEST_CATALOG: DEBUG
-  LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
+  LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: INFO
 resources:
   limits:
     memory: 512Mi
