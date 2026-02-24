@@ -46,7 +46,7 @@ env:
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
 resources:
   limits:
-    memory: 640Mi
+    memory: 512Mi
     cpu: 500m
   requests:
     cpu: 250m
