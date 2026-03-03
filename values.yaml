@@ -41,14 +41,14 @@ env:
   JWT_ISSUER: "fitnest"
   USER_SERVICE_URL: "http://user-service:8080"
   STORAGE_SERVICE_URL: "http://storage-service:8080"
-  JAVA_OPTS: "-Xmx384m -Xms200m -XX:+UseZGC -Xss256k"
+  JAVA_OPTS: "-Xmx512m -Xms320m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+ParallelRefProcEnabled -XX:MaxMetaspaceSize=192m -Xss512k -XX:+ExitOnOutOfMemoryError"
   LOGGING_LEVEL_ROOT: INFO
   LOGGING_LEVEL_AZ_FITNEST_CATALOG: DEBUG
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
 resources:
   limits:
-    memory: 768Mi
+    memory: 1000Mi
     cpu: 500m
   requests:
     cpu: 250m
-    memory: 384Mi
+    memory: 700Mi
