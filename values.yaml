@@ -42,12 +42,12 @@ env:
   USER_SERVICE_URL: "http://user-service:8080"
   STORAGE_SERVICE_URL: "http://storage-service:8080"
   JAVA_TOOL_OPTIONS: >
-    -Xms256m
-    -Xmx512m
+    -Xms128m
+    -Xmx384m
     -XX:+UseG1GC
     -XX:MaxGCPauseMillis=200
     -XX:+ParallelRefProcEnabled
-    -XX:MaxMetaspaceSize=160m
+    -XX:MaxMetaspaceSize=128m
     -XX:+AlwaysPreTouch
     -Xss512k
     -XX:+ExitOnOutOfMemoryError
@@ -56,8 +56,8 @@ env:
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
 resources:
   requests:
-    cpu: 200m
-    memory: 512Mi
+    cpu: 150m
+    memory: 384Mi
   limits:
-    cpu: 1000m
-    memory: 1Gi
+    cpu: 800m
+    memory: 768Mi
