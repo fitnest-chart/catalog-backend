@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/catalog-service
-  tag: "development-66ce761"
+  tag: "development-6fc1aa6"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
@@ -45,11 +45,11 @@ env:
   USE_GRPC_STORAGE: "false"
   STORAGE_GRPC_ADDRESS: "dns:///storage-service.fitnest-dev.svc.cluster.local:9090"
   # gRPC TLS / mTLS options for internal service-to-service calls (used by gRPC clients)
-  GRPC_USE_TLS: "false"               # set to "true" to enable TLS for outgoing gRPC calls
-  GRPC_TLS_CLIENT_CERT: "/etc/certs/tls.crt"  # mounted cert path when using mTLS
+  GRPC_USE_TLS: "false" # set to "true" to enable TLS for outgoing gRPC calls
+  GRPC_TLS_CLIENT_CERT: "/etc/certs/tls.crt" # mounted cert path when using mTLS
   GRPC_TLS_CLIENT_KEY: "/etc/certs/tls.key"
   GRPC_TLS_CA_CERT: "/etc/certs/ca.crt"
-  GRPC_SERVER_TLS_ENABLED: "false"   # set to true if exposing gRPC server with TLS
+  GRPC_SERVER_TLS_ENABLED: "false" # set to true if exposing gRPC server with TLS
   JAVA_TOOL_OPTIONS: >
     -Xms256m -Xmx768m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+ParallelRefProcEnabled -XX:MaxMetaspaceSize=256m -XX:+AlwaysPreTouch -Xss512k -XX:+ExitOnOutOfMemoryError
 
