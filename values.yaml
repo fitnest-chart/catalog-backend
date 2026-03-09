@@ -41,6 +41,9 @@ env:
   JWT_ISSUER: "fitnest"
   USER_SERVICE_URL: "http://user-service:8080"
   STORAGE_SERVICE_URL: "http://storage-service:8080"
+  # Optional: enable gRPC-based storage client instead of HTTP. When true, set STORAGE_GRPC_ADDRESS.
+  USE_GRPC_STORAGE: "false"
+  STORAGE_GRPC_ADDRESS: "dns:///storage-service.fitnest-dev.svc.cluster.local:9090"
   # gRPC TLS / mTLS options for internal service-to-service calls (used by gRPC clients)
   GRPC_USE_TLS: "false"               # set to "true" to enable TLS for outgoing gRPC calls
   GRPC_TLS_CLIENT_CERT: "/etc/certs/tls.crt"  # mounted cert path when using mTLS
