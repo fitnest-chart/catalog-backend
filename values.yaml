@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-backend/catalog-service
-  tag: "development-dfb068e"
+  tag: "development-0c2169f"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
@@ -57,7 +57,6 @@ env:
   LOGGING_LEVEL_AZ_FITNEST_CATALOG: DEBUG
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK: WARN
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: WARN
-
 resources:
   requests:
     cpu: 35m
