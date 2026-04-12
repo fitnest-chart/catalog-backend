@@ -1,7 +1,9 @@
+# values.yaml for catalog-backend
+
 replicaCount: 1
 
 image:
-  repository: ghcr.io/fitnest-backend/catalog-service
+  repository: ghcr.io/fitnest-code/catalog-backend
   tag: "development-abb4f8b"
   pullPolicy: IfNotPresent
   imagePullSecrets:
@@ -16,9 +18,9 @@ service:
 networkPolicy:
   enabled: true
   allowedServices:
-    - user-service
-    - identity-service
-    - order-service
+    - user-backend
+    - identity-backend
+    - order-backend
     # api-gateway is already hardcoded in the policy
 
 hpa:
@@ -42,10 +44,10 @@ env:
   KAFKA_BOOTSTRAP_SERVERS: "10.0.0.4:9092"
   JWT_SECRET: "your-jwt-secret-change-in-production"
   JWT_ISSUER: "fitnest"
-  USER_SERVICE_URL: "http://user-service:8080"
-  STORAGE_SERVICE_URL: "http://storage-service:8080"
+  USER_SERVICE_URL: "http://user-backend:8080"
+  STORAGE_SERVICE_URL: "http://storage-backend:8080"
   USE_GRPC_STORAGE: "false"
-  STORAGE_GRPC_ADDRESS: "dns:///storage-service.fitnest-dev.svc.cluster.local:9090"
+  STORAGE_GRPC_ADDRESS: "dns:///storage-backend.fitnest-dev.svc.cluster.local:9090"
   GRPC_USE_TLS: "false"
   GRPC_TLS_CLIENT_CERT: "/etc/certs/tls.crt"
   GRPC_TLS_CLIENT_KEY: "/etc/certs/tls.key"
