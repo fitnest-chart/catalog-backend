@@ -29,13 +29,14 @@ hpa:
 env:
   SPRING_PROFILES_ACTIVE: "dev"
   SPRINGDOC_SERVER_URL: "https://dev-api.fitnest.az"
-  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql-shared:5432/fitnest_catalog"
+  SPRING_DATASOURCE_URL: jdbc:postgresql://10.0.0.4:5432/fitnest_catalog?sslmode=disable
   SPRING_DATASOURCE_USERNAME: "postgres"
   SPRING_DATASOURCE_PASSWORD: "shared_password_root_123"
   SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
-  SPRING_DATA_REDIS_HOST: "redis"
-  SPRING_DATA_REDIS_PORT: "6379"
-  SPRING_DATA_REDIS_PASSWORD: ""
+  SPRING_DATA_REDIS_HOST: "10.0.0.4"
+  SPRING_DATA_REDIS_PORT: "6380"
+  SPRING_DATA_REDIS_PASSWORD: "ChangeMeDevRedis!"
+  SPRING_DATA_REDIS_TIMEOUT: "2000ms"
   KAFKA_BOOTSTRAP_SERVERS: "kafka-service:9092"
   JWT_SECRET: "your-jwt-secret-change-in-production"
   JWT_ISSUER: "fitnest"
