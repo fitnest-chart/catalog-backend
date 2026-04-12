@@ -1,19 +1,16 @@
 # values.yaml for catalog-backend
 
 replicaCount: 1
-
 image:
   repository: ghcr.io/fitnest-code/catalog-backend
-  tag: "development-abb4f8b"
+  tag: "development-f24dab5"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
-
 service:
   type: ClusterIP
   port: 8080
   grpcPort: 9090
-
 # NetworkPolicy replaces Istio AuthorizationPolicy
 networkPolicy:
   enabled: true
@@ -22,14 +19,12 @@ networkPolicy:
     - identity-backend
     - order-backend
     # api-gateway is already hardcoded in the policy
-
 hpa:
   enabled: false
   minReplicas: "1"
   maxReplicas: "3"
   cpuUtilization: "90"
   memoryUtilization: "450Mi"
-
 env:
   SPRING_PROFILES_ACTIVE: "dev"
   SPRINGDOC_SERVER_URL: "https://dev-api.fitnest.az"
@@ -55,11 +50,11 @@ env:
   GRPC_SERVER_TLS_ENABLED: "false"
   JAVA_TOOL_OPTIONS: >
     -Xms256m -Xmx512m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+ParallelRefProcEnabled -XX:MaxMetaspaceSize=256m -XX:+AlwaysPreTouch -Xss512k -XX:+ExitOnOutOfMemoryError
+
   LOGGING_LEVEL_ROOT: INFO
   LOGGING_LEVEL_AZ_FITNEST_CATALOG: DEBUG
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK: WARN
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: WARN
-
 resources:
   requests:
     cpu: 35m
