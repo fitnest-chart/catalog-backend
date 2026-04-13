@@ -42,7 +42,7 @@ env:
   USER_BACKEND_URL: "http://user-backend:8080"
   STORAGE_BACKEND_URL: "http://storage-backend:8080"
   USE_GRPC_STORAGE: "false"
-  STORAGE_GRPC_ADDRESS: "dns:///storage-backend.fitnest-dev.svc.cluster.local:9090"
+  STORAGE_GRPC_ADDRESS: "dns:///storage-backend.fitnest-development.svc.cluster.local:9090"
   GRPC_USE_TLS: "false"
   GRPC_TLS_CLIENT_CERT: "/etc/certs/tls.crt"
   GRPC_TLS_CLIENT_KEY: "/etc/certs/tls.key"
