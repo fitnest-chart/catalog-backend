@@ -1,4 +1,4 @@
-vaultEnv: dev
+vaultEnv: development
 # values.yaml for catalog-backend
 
 replicaCount: 1
