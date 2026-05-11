@@ -29,3 +29,6 @@ service:
   port: 8080
   type: ClusterIP
 vaultEnv: development
+database:
+  hikariMaxPool: 30
+  hikariMinIdle: 10
