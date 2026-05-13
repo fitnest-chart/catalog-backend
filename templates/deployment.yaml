@@ -61,5 +61,9 @@ spec:
               value: {{ .Values.database.hikariMaxPool | quote }}
             - name: HIKARI_MIN_IDLE
               value: {{ .Values.database.hikariMinIdle | quote }}
+            - name: SPRING_SERVLET_MULTIPART_MAX_FILE_SIZE
+              value: "100MB"
+            - name: SPRING_SERVLET_MULTIPART_MAX_REQUEST_SIZE
+              value: "1000MB"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
